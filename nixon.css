@@ -1,0 +1,25 @@
+.nixon{
+    background-image:url("nixon\ sus.png");
+}
+    
+.geroge{
+    background-image:url("mcgeorgesus.jpg");
+}
+
+h1{
+    color: white;
+}
+body{
+    background-color: black;
+    background-image: url(map.png);
+}
+
+#red{
+    size: 0in;
+    padding: 0cm;
+}
+
+.blue{
+    float: right;
+    padding: left;
+}
