@@ -9,8 +9,7 @@
     <script src="ball.js"></script>
     <p>Presidental Election In Among us!</p>
     <div id="field">
-        <img src="littleguysmall.png" id="ball"> ..
-
+        <img src="littleguysmall.png" id="guy">
     <img src="nixon3.png" class="" alt="red" id="red">
 
 
@@ -20,20 +19,57 @@
     <h1>Click the Button to vote
     </h1>
     <body>
+        <script>
+            let field = document.getElementById('field')
+
+let guy = document.getElementById('guy')
+
+
+field.onclick = function (event) {
+
+    // window-relative field coordinates
+    let fieldCoords = this.getBoundingClientRect();
+
+    // the guy has position:absolute, the field: position:relative
+    // so guy coordinates are relative to the field inner left-upper corner
+    let guyCoords = {
+        top: event.clientY - fieldCoords.top - field.clientTop - guy.clientHeight / 2,
+        left: event.clientX - fieldCoords.left - field.clientLeft - guy.clientWidth / 2
+    };
+
+    let guy2Coords = {
+        top: event.clientY - fieldCoords.top - field.clientTop - guy.clientHeight / 2,
+        left: event.clientX - fieldCoords.left - field.clientLeft - guy.clientWidth / 2
+    };
+
+    // prevent crossing the top field boundary
+    if (guyCoords.top < 0) guyCoords.top = 0;
+
+    // prevent crossing the left field boundary
+    if (guyCoords.left < 0) guyCoords.left = 0;
+
+
+    // // prevent crossing the right field boundary
+    if (guyCoords.left + guy.clientWidth > field.clientWidth) {
+        guyCoords.left = field.clientWidth - guy.clientWidth;
+    }
+
+    // prevent crossing the bottom field boundary
+    if (guyCoords.top + guy.clientHeight > field.clientHeight) {
+        guyCoords.top = field.clientHeight - guy.clientHeight;
+    }
+
+    guy.style.left = guyCoords.left + 'px';
+    guy.style.top = guyCoords.top + 'px';
+}
+
+window.onload = (event) => {
+    console.log('page is fully loaded');
+};
+        </script>
         <a href ="voting.html">
         <img src="thebutton.png" href="voting.html"/ id="button">
         </center>
-<style>
 
-    
-        #guy {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            transition: all 1s;
-          }
-</style>
 </body>
 </html>
