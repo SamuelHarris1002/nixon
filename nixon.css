@@ -53,3 +53,12 @@ p{
     height: 100px;
     transition: all .05s;
   }
+
+  #vent{
+      display:;
+      position: relative;
+      width: 60px;
+      height: 60px;
+      left: 615px;
+      bottom: -15px;
+  }
