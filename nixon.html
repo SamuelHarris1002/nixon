@@ -64,6 +64,10 @@ field.onclick = function (event) {
     guy.style.top = guyCoords.top + 'px';
 }
 
+document.body.oncontextmenu = function(){
+    event.preventDefault();
+}
+
 window.onload = (event) => {
     console.log('page is fully loaded');
 };
